@@ -1,0 +1,29 @@
+%h1 The List
+
+-for household in @households
+  - if household.people.count > 1
+    #household{ :class => class_for_household_div(household) }
+      = household.description
+      = link_to 'Edit', edit_household_path(household)
+      = link_to "Mail (#{household.notes_count})", new_note_path(:note => {:household_id => household.id})
+      = link_to 'Add to household', new_person_path(:person => {:household_id => household.id})
+    
+      -for person in household.people
+        #person
+          .email= person.email
+          = person.full_name
+          = link_to 'Edit', edit_person_path(person)
+          = link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete
+  - else
+    - person = household.people.first
+    #person{ :class => class_for_household_div(household) }
+      .email= person.email
+      = person.full_name
+      = link_to 'Edit', edit_person_path(person)
+      = link_to "Mail (#{household.notes_count})", new_note_path(:note => {:household_id => household.id})
+      = link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete
+      = link_to 'Add to household', new_person_path(:person => {:household_id => household.id})
+
+= link_to 'Add person to new household', new_person_path, :class => 'add_person_and_household'
+
+.tip Type a letter on this page to quickly scroll through the list by last name.

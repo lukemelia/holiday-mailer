@@ -1,0 +1,17 @@
+%h1 Send a Note
+
+-form_for @note do |f|
+  = f.error_messages
+
+  #to=f.text_field :to
+  #subject=f.text_field :subject
+  #from=f.text_field :from
+  #message=f.text_area :message
+  
+  =f.hidden_field :household_id
+  
+  %p= f.submit "Create"
+
+.back= link_to 'Cancel and go back', people_path
+  
+  

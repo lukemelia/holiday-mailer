@@ -1,0 +1,16 @@
+development: &non_production_settings
+  site_url: http://localhost:3000
+  site_name: Holiday Mailer
+  admin_email: you@example.tst
+  default_subject: Happy New Year!
+  default_from: Your Name <you@example.tst>
+
+test:
+  <<: *non_production_settings
+
+production:
+  site_url: http://holiday.yoursite.tst
+  site_name: Holiday Mailer
+  admin_email: you@example.tst
+  default_subject: Happy New Year!
+  default_from: Your Name <you@example.tst>

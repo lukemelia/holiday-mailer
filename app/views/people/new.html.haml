@@ -1,0 +1,14 @@
+%h1 New person
+
+- form_for(@person) do |f|
+  = f.error_messages
+
+  #first_name= f.text_field :first_name
+  #last_name= f.text_field :last_name
+  #email= f.text_field :email
+  
+  =f.hidden_field :household_id
+
+  %p= f.submit "Create"
+
+.back= link_to 'Back', people_path
