@@ -98,7 +98,7 @@ form label {
   padding:3px;
   border:1px solid #999;
 }
-form#new_person label {
+form.person_form label {
   width: 125px;
 }
 .note {

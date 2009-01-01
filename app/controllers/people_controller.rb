@@ -5,10 +5,6 @@ class PeopleController < ApplicationController
     @households = Household.find(:all, :include => :people).sort_by &:last_name_of_first_person
   end
 
-  def show
-    @person = Person.find(params[:id])
-  end
-
   def new
     @person = Person.new(params[:person])
   end
@@ -22,8 +18,7 @@ class PeopleController < ApplicationController
 
     if @person.save
       flash[:notice] = "#{@person.full_name} was successfully created."
-      flash[:scroll_to] = ".#{dom_id(@person.household)}"
-      redirect_to(people_url)
+      redirect_to_people_list_showing(@person.household)
     else
       render :action => "new"
     end
@@ -34,8 +29,7 @@ class PeopleController < ApplicationController
 
     if @person.update_attributes(params[:person])
       flash[:notice] = 'Person was successfully updated.'
-      flash[:scroll_to] = ".#{dom_id(@person.household)}"
-      redirect_to(people_url)
+      redirect_to_people_list_showing(@person.household)
     else
       render :action => "edit"
     end
@@ -46,7 +40,6 @@ class PeopleController < ApplicationController
     @person.destroy
 
     flash[:notice] = "#{@person.full_name} deleted."
-    flash[:scroll_to] = ".#{dom_id(@person.household)}"
-    redirect_to(people_url)
+    redirect_to_people_list_showing(@person.household)
   end
 end

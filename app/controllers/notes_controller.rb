@@ -12,8 +12,7 @@ class NotesController < ApplicationController
     
     if @note.save
       flash[:notice] = "Note was sent to #{@note.household.description}."
-      flash[:scroll_to] = ".#{dom_id(@note.household)}"
-      redirect_to(people_url)
+      redirect_to_people_list_showing(@note.household)
     else
       render :action => "new"
     end

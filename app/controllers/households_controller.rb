@@ -10,8 +10,7 @@ class HouseholdsController < ApplicationController
 
     if @household.update_attributes(params[:household])
       flash[:notice] = 'Household was successfully updated.'
-      flash[:scroll_to] = ".#{dom_id(@household)}"
-      redirect_to(people_url)
+      redirect_to_people_list_showing(@household)
     else
       render :action => "edit"
     end
