@@ -1,3 +1,19 @@
+-if @household_notes.any?
+  %h1 Previously Sent Notes
+
+  -@household_notes.each do |note|
+    .note
+      .sent= "Sent on #{note.created_at} by #{note.sender.login}"
+      .to= "To: #{note.to}"
+      .subject= "Subject: #{note.subject}"
+      .from= "From: #{note.from}"
+    
+      .message
+        Message:
+        %pre
+          = ''
+          = word_wrap(note.message)
+
 %h1 Send a Note
 
 -form_for @note do |f|
@@ -10,8 +26,9 @@
   
   =f.hidden_field :household_id
   
-  %p= f.submit "Send"
+  %p= f.submit "Send email"
 
+.tip Holiday card image will be included at the bottom of the message.
 .back= link_to 'Cancel and go back', people_path
   
   

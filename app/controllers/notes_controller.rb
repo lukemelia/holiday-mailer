@@ -3,6 +3,7 @@ class NotesController < ApplicationController
     
   def new
     @note = Note.build_new(params[:note])
+    @household_notes = Note.all(:conditions => {:household_id => params[:note][:household_id]})
   end
   
   def create

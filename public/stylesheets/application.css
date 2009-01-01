@@ -101,6 +101,13 @@ form label {
 form#new_person label {
   width: 125px;
 }
+.note {
+  width:700px;
+  margin: 10px auto;
+  padding:20px;
+  background-color:white;
+  border:1px solid #ccc;
+}
 .tip {
   margin-top:10px;
   font-style:oblique;
