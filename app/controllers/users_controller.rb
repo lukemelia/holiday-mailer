@@ -13,12 +13,14 @@ class UsersController < ApplicationController
         :required => [:nickname, :email]) do |result, identity_url, registration|
         if result.successful?
           create_new_user(:identity_url => identity_url, :login => registration['nickname'], :email => registration['email'])
+          flash[:notice] = "Account created!"
         else
           failed_creation(result.message || "Sorry, something went wrong")
         end
       end
     else
       create_new_user(params[:user])
+      flash[:notice] = "Account created!"
     end
   end
   

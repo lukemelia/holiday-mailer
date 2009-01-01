@@ -22,6 +22,7 @@ class PeopleController < ApplicationController
 
     if @person.save
       flash[:notice] = "#{@person.full_name} was successfully created."
+      flash[:scroll_to] = ".#{dom_id(@person.household)}"
       redirect_to(people_url)
     else
       render :action => "new"
@@ -33,6 +34,7 @@ class PeopleController < ApplicationController
 
     if @person.update_attributes(params[:person])
       flash[:notice] = 'Person was successfully updated.'
+      flash[:scroll_to] = ".#{dom_id(@person.household)}"
       redirect_to(people_url)
     else
       render :action => "edit"
@@ -44,6 +46,7 @@ class PeopleController < ApplicationController
     @person.destroy
 
     flash[:notice] = "#{@person.full_name} deleted."
+    flash[:scroll_to] = ".#{dom_id(@person.household)}"
     redirect_to(people_url)
   end
 end

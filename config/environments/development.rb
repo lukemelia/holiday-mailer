@@ -16,6 +16,8 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = true
 
+config.action_mailer.delivery_method = :test
+
 # Restful Authentication
 REST_AUTH_SITE_KEY = 'f5945c2c74d3502f443de8562e5bf21fe3fec887'
 REST_AUTH_DIGEST_STRETCHES = 10

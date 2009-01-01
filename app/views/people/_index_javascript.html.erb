@@ -1,0 +1,12 @@
+<% if flash[:scroll_to] %>
+  <% content_for :javascript do %>
+  <script type="text/javascript" charset="utf-8">
+    $(function(){
+      var el = $('<%= flash[:scroll_to] %>');
+      if (el.length > 0) {
+        el[0].scrollIntoView();
+      }
+    });
+  </script>
+  <% end %>
+<% end %>

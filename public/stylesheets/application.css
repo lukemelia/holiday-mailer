@@ -57,7 +57,7 @@ form.login a {
   font-size: 0.6em;
 }
 
-#household, a.add_person_and_household {
+.household, a.add_person_and_household {
   margin-bottom:2px;
   padding:5px 5px 5px 30px;
   background:#eee url(/images/home_icons/home_24x23.png) no-repeat 3px 3px;
@@ -66,7 +66,7 @@ form.login a {
   opacity:0.90;
   font-family:Georgia, "Times New Roman", Times, serif;
 }
-#person {
+.person {
   padding:5px 5px 5px 30px;
   background:#ccc url(/images/user_icons/user_24x23.png) no-repeat 3px 3px;
   margin:5px;
@@ -75,16 +75,16 @@ form.login a {
   opacity:0.90;
   font-family:Georgia, "Times New Roman", Times, serif;
 }
-#person.note_sent, #household.note_sent {
+.person.note_sent, .household.note_sent {
   background-color:#139934;
 }
-#person .email {
+.person .email {
   float:right;
 }
-#household #person {
+.household .person {
   margin-left: 30px;
 }
-a.add_person, #household a, #person a {
+a.add_person, .household a, .person a {
   font: 0.6em "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
 form label {
