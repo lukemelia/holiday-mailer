@@ -7,8 +7,8 @@
   %br= f.text_field :last_name
   %br= f.text_field :email
   
-  %p= f.submit "Update"
+  %p= f.submit "Save changes"
   
 = link_to 'Show', @person
 |
-= link_to 'Back', people_path
+= link_to 'Cancel and go back', people_path

@@ -98,6 +98,9 @@ form label {
   padding:3px;
   border:1px solid #999;
 }
+form#new_person label {
+  width: 125px;
+}
 .tip {
   margin-top:10px;
   font-style:oblique;
