@@ -83,3 +83,7 @@ end
 require 'inline_attachment'
      
 ActionView::Base.default_form_builder = LabelingFormBuilder
+
+HoptoadNotifier.configure do |config|
+  config.api_key = APP_CONFIG[:hoptoad_api_key]
+end
