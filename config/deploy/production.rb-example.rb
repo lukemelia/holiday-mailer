@@ -40,33 +40,15 @@ set :deploy_via, :remote_cache
 #############################################################
 
 namespace :deploy do
-  desc "Create the database yaml file"
-  task :after_update_code do
-    db_config = <<-EOF
-    production:    
-      adapter: mysql
-      encoding: utf8
-      username: root
-      password: 
-      database: holiday_production
-      host: localhost
-    EOF
-    
-    put db_config, "#{release_path}/config/database.yml"
-    
-    #########################################################
-    # Uncomment the following to symlink an uploads directory.
-    # Just change the paths to whatever you need.
-    #########################################################
-    
-    # desc "Symlink the upload directories"
-    # task :before_symlink do
-    #   run "mkdir -p #{shared_path}/uploads"
-    #   run "ln -s #{shared_path}/uploads #{release_path}/public/uploads"
-    # end
-  
+  desc "Symlink config files"
+  task :before_symlink do
+    run "mkdir -p #{shared_path}/config/initializers"
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -s #{shared_path}/config/settings.yml #{release_path}/config/settings.yml"
+    run "ln -s #{shared_path}/config/default_body.erb #{release_path}/config/default_body.erb"
+    run "ln -s #{shared_path}/config/initializers/smtp_settings.rb #{release_path}/config/initializers/smtp_settings.rb"
   end
-    
+
   # Restart passenger on deploy
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
