@@ -6,20 +6,16 @@
 		<legend>Your Details</legend>
 		<ol>
 			<li>
-				<%= f.label :login, 'Username' %>
-				<%= f.text_field :login %>
+				<%= f.text_field :login, :label => 'Username' %>
 			</li>
 			<li>
-				<%= f.label :email %>
 				<%= f.text_field :email %>
 			</li>
 			<li>
-				<%= f.label :password %>
 				<%= f.password_field :password %>
 			</li>
 			<li>
-				<%= f.label :password_confirmation, 'Confirm Password' %>
-				<%= f.password_field :password_confirmation %>
+				<%= f.password_field :password_confirmation, :label => 'Confirm Password'  %>
 			</li>
 		</ol>
 	</fieldset>
