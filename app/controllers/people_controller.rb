@@ -17,7 +17,7 @@ class PeopleController < ApplicationController
     @person = Person.new(params[:person])
 
     if @person.save
-      flash[:notice] = "#{@person.full_name} was successfully created."
+      flash[:notice] = "#{@person.full_name} was successfully added."
       redirect_to_people_list_showing(@person.household)
     else
       render :action => "new"
@@ -28,7 +28,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
 
     if @person.update_attributes(params[:person])
-      flash[:notice] = 'Person was successfully updated.'
+      flash[:notice] = 'Person was successfully changed.'
       redirect_to_people_list_showing(@person.household)
     else
       render :action => "edit"

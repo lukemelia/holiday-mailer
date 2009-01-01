@@ -15,7 +15,7 @@
           .email= person.email
           = person.full_name
           = link_to 'Edit', edit_person_path(person)
-          = link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete
+          = link_to 'Delete', person, :confirm => 'Are you sure?', :method => :delete
   - else
     - person = household.people.first
     .person{ :class => class_for_household_div(household) }
@@ -23,7 +23,7 @@
       = person.full_name
       = link_to 'Edit', edit_person_path(person)
       = link_to_new_note(household)
-      = link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete
+      = link_to 'Delete', person, :confirm => 'Are you sure?', :method => :delete
       = link_to 'Add to household', new_person_path(:person => {:household_id => household.id})
 
 = link_to 'Add person to new household', new_person_path, :class => 'add_person_and_household'

@@ -16,8 +16,10 @@ class Person < ActiveRecord::Base
   def full_email_address
     if full_name
       "#{full_name} <#{email}>"
-    else
+    elsif email.present?
       email
+    else
+      nil
     end
   end
     

@@ -25,7 +25,7 @@ class Household < ActiveRecord::Base
   end
   
   def email_list
-    people.map(&:full_email_address).join(', ')
+    people.map(&:full_email_address).compact.join(', ')
   end
   
   def greeting
