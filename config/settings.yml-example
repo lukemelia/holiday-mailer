@@ -4,7 +4,8 @@ development: &non_production_settings
   admin_email: you@example.tst
   default_subject: Happy New Year!
   default_from: Your Name <you@example.tst>
-
+  hoptoad_api_key: your_key
+  
 test:
   <<: *non_production_settings
 
@@ -14,3 +15,4 @@ production:
   admin_email: you@example.tst
   default_subject: Happy New Year!
   default_from: Your Name <you@example.tst>
+  hoptoad_api_key: your_key
