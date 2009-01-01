@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
   
   
   def full_name
-    if first_name && last_name
+    if first_name.present? && last_name.present?
       return "#{first_name} #{last_name}"
     else
       return first_name || last_name
@@ -14,7 +14,7 @@ class Person < ActiveRecord::Base
   end
   
   def full_email_address
-    if full_name
+    if full_name.present? && email.present?
       "#{full_name} <#{email}>"
     elsif email.present?
       email
