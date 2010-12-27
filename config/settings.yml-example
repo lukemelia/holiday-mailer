@@ -4,6 +4,7 @@ development: &non_production_settings
   admin_email: you@example.tst
   default_subject: Happy New Year!
   default_from: Your Name <you@example.tst>
+  default_image_filename: happy-new-year-2008-9.jpg
   hoptoad_api_key: your_key
   
 test:
@@ -15,4 +16,5 @@ production:
   admin_email: you@example.tst
   default_subject: Happy New Year!
   default_from: Your Name <you@example.tst>
+  default_image_filename: happy-new-year-2008-9.jpg
   hoptoad_api_key: your_key

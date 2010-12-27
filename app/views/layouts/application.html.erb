@@ -21,6 +21,7 @@
         <% unless @suppress_signup_login_links %>
           <ul>
             <% if logged_in? %>
+            <li>Active batch: <%= Batch.active_batch.name %> [<%= link_to 'Change', batches_path %>]</li>
             <li><%= link_to 'Logout', logout_path %></li>
             <li>Hi, <%= current_user.login %></li>
             <% else %>

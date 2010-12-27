@@ -1,4 +1,4 @@
-Dear <%= note.household.greeting %>,
+Dear __GREETING__,
 
 What a year 2008 was!
 

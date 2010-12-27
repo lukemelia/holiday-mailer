@@ -13,6 +13,7 @@
         %pre
           = ''
           = word_wrap(note.message)
+          .container= image_tag(note.image_filename)
 
 %h1 Send a Note
 
@@ -23,12 +24,14 @@
   #subject=f.text_field :subject
   #from=f.text_field :from
   #message=f.text_area :message
+  #Image=f.text_field :image_filename
+  .tip Holiday card image will be included at the bottom of the message.
   
   =f.hidden_field :household_id
+  =f.hidden_field :batch_id
   
-  %p= f.submit "Send email"
-
-.tip Holiday card image will be included at the bottom of the message.
-.back= link_to 'Cancel and go back', people_path
+  %p
+    = f.submit "Send email"
+    .back= link_to 'Cancel and go back', people_path
   
   

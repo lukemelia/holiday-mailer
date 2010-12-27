@@ -1,6 +1,10 @@
 class Household < ActiveRecord::Base
   has_many :people, :dependent => :destroy
-  has_many :notes
+  has_many :notes do
+    def active
+      all(:conditions => {:batch_id => Batch.active_batch.id})
+    end
+  end
   
   def description
     if read_attribute(:description).blank?
@@ -37,6 +41,10 @@ class Household < ActiveRecord::Base
   end
   
   def note_sent?
-    notes_count > 0
+    active_notes_count > 0
+  end
+  
+  def update_active_notes_count
+    update_attribute(:active_notes_count, notes.active.count)
   end
 end

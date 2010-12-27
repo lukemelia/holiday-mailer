@@ -9,14 +9,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081230061623) do
+ActiveRecord::Schema.define(:version => 20101226191800) do
+
+  create_table "batches", :force => true do |t|
+    t.string   "name",           :limit => 25
+    t.string   "subject"
+    t.string   "from"
+    t.string   "image_filename"
+    t.text     "message"
+    t.boolean  "active",                       :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "batches", ["active"], :name => "index_batches_on_active"
+  add_index "batches", ["name"], :name => "index_batches_on_name", :unique => true
 
   create_table "households", :force => true do |t|
     t.string   "description"
     t.string   "greeting"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "notes_count", :default => 0
+    t.integer  "active_notes_count", :default => 0
   end
 
   create_table "notes", :force => true do |t|
@@ -28,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20081230061623) do
     t.integer  "sender_id"
     t.string   "from"
     t.string   "subject"
+    t.string   "image_filename"
+    t.integer  "batch_id",       :null => false
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|

@@ -1,0 +1,16 @@
+= link_to '&lt; Home', root_path
+
+%h1 Batches
+
+= link_to 'New Batch', new_batch_path
+
+-@batches.each do |batch|
+  .batch
+    .name
+      = "Name: <strong>#{batch.name}</strong>"
+      = link_to 'Edit', edit_batch_path(batch)
+    .active
+      = "Active: #{batch.active}"
+      = link_to 'Activate', activate_batch_path(batch), :method => :put unless batch.active
+    .created_at= "Created at: #{batch.created_at}"
+    .count= "Notes sent: #{batch.notes.count}"

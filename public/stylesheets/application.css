@@ -8,8 +8,9 @@ body {
   float:right;
   font-size: 0.9em;
   margin-left:10px;
+  padding-right:9px;
+  border-right:1px solid #999;
 }
-
 div.flash {
   position:fixed;
   z-index:100;
@@ -92,6 +93,11 @@ form label {
   display:block;
   float:left;
 }
+#new_note {
+  width:800px;
+  margin: 10px auto;
+  padding:20px;
+}
 #new_note input[type='text'], #new_note textarea {
   width:600px;
   font: 1.0em "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
@@ -102,7 +108,7 @@ form.person_form label {
   width: 125px;
 }
 .note {
-  width:700px;
+  width:800px;
   margin: 10px auto;
   padding:20px;
   background-color:white;
@@ -119,4 +125,7 @@ form.person_form label {
   font-size: 0.6em;
   color:#666;
   text-align:center;
+}
+.batch {
+  margin-top:20px;
 }

@@ -1,0 +1,14 @@
+%h1 Editing batch
+
+- form_for(@batch, :html => {:class => 'batch_form'}) do |f|
+  = f.error_messages
+
+  = f.text_field :name
+  %br= f.text_field :from
+  %br= f.text_field :subject
+  %br= f.text_field :image_filename
+  %br= f.text_area :message, :label => 'Message template'
+  
+  %p= f.submit "Save changes"
+  
+= link_to 'Cancel and go back', batches_path
