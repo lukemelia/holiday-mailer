@@ -47,6 +47,8 @@ namespace :deploy do
     run "ln -s #{shared_path}/config/settings.yml #{release_path}/config/settings.yml"
     run "ln -s #{shared_path}/config/default_body.erb #{release_path}/config/default_body.erb"
     run "ln -s #{shared_path}/config/initializers/smtp_settings.rb #{release_path}/config/initializers/smtp_settings.rb"
+    run "mkdir -p #{shared_path}/system/images"
+    run "cd #{shared_path}/system/images && find -type f | xargs -I {} ln -s #{shared_path}/system/images/{} #{release_path}/public/images/{}"
   end
 
   # Restart passenger on deploy
