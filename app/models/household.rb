@@ -45,6 +45,6 @@ class Household < ActiveRecord::Base
   end
   
   def update_active_notes_count
-    update_attribute(:active_notes_count, notes.active.count)
+    update_attribute(:active_notes_count, notes.active.size)
   end
 end
