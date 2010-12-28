@@ -4,7 +4,6 @@ class AddFieldsToNotes < ActiveRecord::Migration
     add_column :notes, :sender_id, :integer
     add_column :notes, :from, :string
     add_column :notes, :subject, :string
-    add_column :notes, :image_filename, :string
   end
 
   def self.down

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101226191800) do
+ActiveRecord::Schema.define(:version => 20101228071206) do
 
   create_table "batches", :force => true do |t|
     t.string   "name",           :limit => 25
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20101226191800) do
     t.integer  "sender_id"
     t.string   "from"
     t.string   "subject"
-    t.string   "image_filename"
     t.integer  "batch_id",       :null => false
+    t.string   "image_filename"
   end
 
   create_table "open_id_authentication_associations", :force => true do |t|
