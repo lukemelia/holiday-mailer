@@ -25,6 +25,8 @@ class Household < ActiveRecord::Base
   def first_letter_of_last_name_of_first_person
     if last_name_of_first_person.present?
       last_name_of_first_person.first
+    else
+      ''
     end
   end
   
