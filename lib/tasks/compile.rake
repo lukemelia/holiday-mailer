@@ -10,9 +10,6 @@ task :compile do
     print_and_execute("cat .gitignore | grep -v #{entry} > .gitignore.tmp; mv .gitignore.tmp .gitignore")
   end
   
-  remove_from_gitignore("config/default_body.erb")
-  remove_from_gitignore("config/initializers/secret_token.rb")
-  remove_from_gitignore("config/initializers/smtp_settings.rb")
   remove_from_gitignore("app/assets/images/happy-new-year-2010-11.jpg")
   remove_from_gitignore("app/assets/images/happy-new-year-2010-11-girls.jpg")
   remove_from_gitignore("app/assets/images/happy-new-year-2010-12.jpg")
