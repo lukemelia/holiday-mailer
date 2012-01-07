@@ -13,7 +13,9 @@ task :compile do
   remove_from_gitignore("config/default_body.erb")
   remove_from_gitignore("config/initializers/secret_token.rb")
   remove_from_gitignore("config/initializers/smtp_settings.rb")
-  remove_from_gitignore("app/assets/images/happy-new-year-201*")
+  remove_from_gitignore("app/assets/images/happy-new-year-2010-11.jpg")
+  remove_from_gitignore("app/assets/images/happy-new-year-2010-11-girls.jpg")
+  remove_from_gitignore("app/assets/images/happy-new-year-2010-12.jpg")
   
   ["git add .",
    "git commit -m 'Compiled app ready for deploy'"
