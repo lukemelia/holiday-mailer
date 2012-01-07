@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     return unless Rails.env.production?
     if !request.ssl?
       redirect_to APP_CONFIG[:site_url], :status => 301
-    
+    end
   end
   
   def authenticate_user!
