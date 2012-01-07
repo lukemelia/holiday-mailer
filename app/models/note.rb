@@ -12,7 +12,7 @@ class Note < ActiveRecord::Base
     note.subject = batch.subject || APP_CONFIG[:default_subject]
     note.from = batch.from || APP_CONFIG[:default_from]
     note.image_filename = batch.image_filename || APP_CONFIG[:default_image_filename]
-    note.message = (batch.message || IO.read(Rails.root + "/config/default_body.erb")).gsub('__GREETING__', note.household.greeting)
+    note.message = (batch.message || IO.read(Rails.root.join("config", "default_body.erb")).gsub('__GREETING__', note.household.greeting)
     note
   end
   
