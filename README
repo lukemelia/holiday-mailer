@@ -1,0 +1,30 @@
+Holiday Mailer
+==============
+
+Holiday Mailer is an app to create your own electronic alternative to the snail-mail photo holiday card written by "Luke Melia":http://www.lukemelia.com. It is not designed for easy re-use (yet), but feel free to fork and do your own thing.
+
+Install
+-------
+
+* Update the secret token in config/initializers/secret_token.rb
+* Create a Facebook app at facebook.com/developers and set the HOLIDAY_MAILER_FACEBOOK_APP_ID and HOLIDAY_MAILER_FACEBOOK_APP_SECRET environment variables 
+* Copy config/settings.yml-example to config/settings.yml and edit
+* Copy config/default_body.erb-example to config/default_body.erb and edit
+* Copy config/initializers/smtp_settings.rb-example to config/initializers/smtp_settings.rb and edit
+* Replace the photo of my family in public/images with one of your family
+* Edit database.yml
+* Change the default password in the bort migration (initially admin/billie)
+* Edit the REST_AUTH_SITE_KEY in each of the environment files
+* rake db:create
+* rake db:migrate
+
+Credits
+-------
+
+* Background from CC-licensed image by "Sarah Parrott":http://www.flickr.com/photos/thingsarebetterwithaparrott/1434120935/
+* Powered by opensource... Thanks to all who make it possible!
+
+And of course....
+=================
+
+Happy Holidays!

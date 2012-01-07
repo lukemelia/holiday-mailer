@@ -1,14 +1,16 @@
 %h1 Editing batch
 
-- form_for(@batch, :html => {:class => 'batch_form'}) do |f|
-  = f.error_messages
+= semantic_form_for(@batch, :html => {:class => 'batch_form'}) do |f|
+  = errors_for(@batch)
 
-  = f.text_field :name
-  %br= f.text_field :from
-  %br= f.text_field :subject
-  %br= f.text_field :image_filename
-  %br= f.text_area :message, :label => 'Message template'
-  
-  %p= f.submit "Save changes"
+  = f.inputs do
+    = f.input :name
+    = f.input :from
+    = f.input :subject
+    = f.input :image_filename
+    = f.input :message, :label => 'Message template'
+    
+  = f.buttons do
+    = f.commit_button
   
 = link_to 'Cancel and go back', batches_path

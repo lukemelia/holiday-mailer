@@ -1,6 +1,4 @@
 class HouseholdsController < ApplicationController
-  before_filter :login_required
-
   def edit
     @household = Household.find(params[:id])
   end

@@ -3,8 +3,10 @@ log
 tmp
 .DS_Store
 config/settings.yml
+config/initializers/secret_token.rb
 config/initializers/smtp_settings.rb
 config/default_body.erb
 config/deploy/production.rb
 db/production_data.sql
 public/images/happy-new-year-201*
+app/assets/images/happy-new-year-201*

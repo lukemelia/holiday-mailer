@@ -1,6 +1,4 @@
 class NotesController < ApplicationController
-  before_filter :login_required
-    
   def new
     @note = Note.build_new(params[:note])
     @household_notes = Note.all(:conditions => {:batch_id => params[:note][:batch_id],

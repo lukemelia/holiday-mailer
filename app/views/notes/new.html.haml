@@ -17,8 +17,8 @@
 
 %h1 Send a Note
 
--form_for @note do |f|
-  = f.error_messages
+=semantic_form_for @note do |f|
+  = errors_for(@note)
 
   #to=f.text_field :to
   #subject=f.text_field :subject

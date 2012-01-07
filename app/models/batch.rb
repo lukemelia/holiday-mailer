@@ -11,7 +11,7 @@ class Batch < ActiveRecord::Base
     transaction do
       Batch.update_all(:active => true, :active => false)
       update_attribute(:active, true)
-      Household.paginated_each do |h|
+      Household.all.each do |h|
         h.update_active_notes_count
       end
     end

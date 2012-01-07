@@ -1,6 +1,4 @@
 class BatchesController < ApplicationController
-  before_filter :login_required
-  
   def index
     @batches = Batch.all(:order => 'created_at DESC')
   end
@@ -9,7 +7,7 @@ class BatchesController < ApplicationController
     @batch = Batch.new
     @batch.subject = APP_CONFIG[:default_subject]
     @batch.from = APP_CONFIG[:default_from]
-    @batch.message = IO.read(Rails.root + "/config/default_body.erb")
+    @batch.message = IO.read(Rails.root.join("config", "default_body.erb"))
     @batch.image_filename = APP_CONFIG[:default_image_filename]
   end
   

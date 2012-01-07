@@ -1,4 +1,4 @@
-= link_to '&lt; Home', root_path
+= link_to '&lt; Home'.html_safe, root_path
 
 %h1 Batches
 
@@ -7,7 +7,7 @@
 -@batches.each do |batch|
   .batch
     .name
-      = "Name: <strong>#{batch.name}</strong>"
+      = "Name: <strong>".html_safe + batch.name + "</strong>".html_safe
       = link_to 'Edit', edit_batch_path(batch)
     .active
       = "Active: #{batch.active}"

@@ -1,6 +1,4 @@
 class PeopleController < ApplicationController
-  before_filter :login_required
-  
   def index
     @households = Household.find(:all, :include => :people).sort_by &:last_name_of_first_person
   end

@@ -9,10 +9,12 @@
     <meta name="robots" content="all" />  
     <meta name="resource-type" content="document" />
     <meta name="MSSmartTagsPreventParsing" content="true" />
-    <%= stylesheet_link_tag 'base' %>
-    <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag :defaults %>
-    <%= javascript_include_tag 'jquery.hotkeys.js' %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript" charset="utf-8">
+      FACEBOOK_APP_ID = <%= FACEBOOK[:app_id].to_json.html_safe %>;
+    </script>
     <%= yield :javascript %>
   </head>
   <body>
@@ -20,13 +22,21 @@
       <div id="header">
         <% unless @suppress_signup_login_links %>
           <ul>
-            <% if logged_in? %>
-            <li>Active batch: <%= Batch.active_batch.name %> [<%= link_to 'Change', batches_path %>]</li>
-            <li><%= link_to 'Logout', logout_path %></li>
-            <li>Hi, <%= current_user.login %></li>
+            <% if current_user? %>
+              <li>
+                Active batch: <%= Batch.active_batch.name %> [<%= link_to 'Change', batches_path %>]
+              </li>
+              <li>
+                <%= link_to 'Logout', '#', :class => 'logout-button' %>
+              </li>
+              <li>
+                <%= facebook_profile_image_tag(current_user.fb_uid, '25x25') %>
+                <%= current_user.first_name %>
+              </li>
             <% else %>
-            <li><%= link_to 'Login', login_path %></li>
-            <li><%= link_to 'Signup', signup_path %></li>
+              <li>
+                <%= link_to 'Login', '#', :class => "login-button" %>
+              </li>
             <% end %>
           </ul>
         <% end %>

@@ -1,14 +1,16 @@
 %h1 Add person
 
-- form_for(@person, :html => {:class => 'person_form'}) do |f|
-  = f.error_messages
+= semantic_form_for(@person, :html => {:class => 'person_form'}) do |f|
+  = errors_for(@person)
 
-  #first_name= f.text_field :first_name
-  #last_name= f.text_field :last_name
-  #email= f.text_field :email
+  = f.inputs do
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :email
   
-  =f.hidden_field :household_id
+    =f.hidden_field :household_id
 
-  %p= f.submit "Add person"
+  = f.buttons do
+    = f.commit_button
 
 .back= link_to 'Cancel and go back', people_path

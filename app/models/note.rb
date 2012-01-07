@@ -19,7 +19,7 @@ class Note < ActiveRecord::Base
 protected
 
   def deliver
-    HolidayMailer.deliver_holiday_note(self)
+    NoteMailer.holiday_note(self).deliver
   end
   
   def update_household_notes_count

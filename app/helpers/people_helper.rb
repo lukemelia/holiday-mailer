@@ -11,9 +11,9 @@ module PeopleHelper
     if household.active_notes_count == 0
       link_to "Send mail", new_note_path(:note => {:household_id => household.id, :batch_id => Batch.active_batch.id})
     elsif household.active_notes_count == 1
-      link_to "Email sent by #{household.notes.active.last.sender.login}", new_note_path(:note => {:household_id => household.id, :batch_id => Batch.active_batch.id})
+      link_to "Email sent by #{household.notes.active.last.sender.first_name}", new_note_path(:note => {:household_id => household.id, :batch_id => Batch.active_batch.id})
     else
-      link_to "#{household.active_notes_count} emails sent (last by #{household.notes.active.last.sender.login})", new_note_path(:note => {:household_id => household.id, :batch_id => Batch.active_batch.id})
+      link_to "#{household.active_notes_count} emails sent (last by #{household.notes.active.last.sender.first_name})", new_note_path(:note => {:household_id => household.id, :batch_id => Batch.active_batch.id})
     end
   end
 end

@@ -1,11 +1,13 @@
 %h1 Editing household
 
-- form_for(@household) do |f|
-  = f.error_messages
-
-  #description= f.text_field :description
-  #greeting= f.text_field :greeting
+= semantic_form_for(@household) do |f|
+  = errors_for(@household)
   
-  %p= f.submit "Update"
+  = f.inputs do
+    = f.input :description
+    = f.input :greeting
+
+  = f.buttons do
+    = f.commit_button
   
 = link_to 'Back', people_path

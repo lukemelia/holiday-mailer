@@ -8,7 +8,7 @@ class AddInitialBatch < ActiveRecord::Migration
         b.name = "Initial batch"
         b.subject = APP_CONFIG[:default_subject]
         b.from = APP_CONFIG[:default_from]
-        b.message = IO.read(Rails.root + "/config/default_body.erb")
+        b.message = IO.read(Rails.root.join("config", "default_body.erb"))
         b.image_filename = 'happy-new-year-2008-9.jpg'
         b.active = true
       end
