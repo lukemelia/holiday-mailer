@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :ensure_ssl
   before_filter :authenticate_user!
   helper_method :current_user, :current_user?
+  
   def build_access_token(the_token, opts = {})
     oauth_client = OAuth2::Client.new(FACEBOOK[:app_id], FACEBOOK[:app_secret], {
       :site => 'https://graph.facebook.com',
@@ -11,6 +13,13 @@ class ApplicationController < ActionController::Base
     access_token.options[:mode] = :query
     access_token.options[:param_name] = :access_token
     access_token
+  end
+  
+  def ensure_ssl
+    return unless Rails.env.production?
+    if !request.ssl?
+      redirect_to APP_CONFIG[:site_url], :status => 301
+    
   end
   
   def authenticate_user!

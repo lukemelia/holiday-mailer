@@ -8,5 +8,5 @@ APP_CONFIG = {
 }
 
 if Rails.env.production?
-  APP_CONFIG[:site_url] = 'http://holiday.lukemelia.com'
+  APP_CONFIG[:site_url] = 'https://holiday-mailer.heroku.com'
 end
