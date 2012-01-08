@@ -1,4 +1,4 @@
-task :compile do
+task :compile => ["assets:precompile"] do
   def print_and_execute(cmd)
     puts "Executing: #{cmd}"
     ret = `#{cmd}`
