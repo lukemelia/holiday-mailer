@@ -1,5 +1,5 @@
 APP_CONFIG = {
-  site_url: 'http://holiday.lukemelia.dev',
+  site_url: 'http://holiday-mailer.heroku.dev',
   site_name: 'Holiday Mailer',
   admin_email: 'luke@lukemelia.com',
   default_subject: "Happy New Year!",
