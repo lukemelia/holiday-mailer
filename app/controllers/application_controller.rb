@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def cookie_domain
-    APP_CONFIG[:site_url].gsub(/^http:\/\//, '')
+    APP_CONFIG[:site_url].gsub(/^https?:\/\//, '')
   end
 
   def set_user_cookie(user)
