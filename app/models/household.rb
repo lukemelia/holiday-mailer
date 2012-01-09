@@ -38,7 +38,7 @@ class Household < ActiveRecord::Base
     if read_attribute(:greeting).blank?
       people.map(&:first_name).to_sentence
     else
-      read_attribute(:greeting).blank?
+      read_attribute(:greeting)
     end
   end
   
