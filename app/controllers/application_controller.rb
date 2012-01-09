@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
   def set_user_cookie(user)
     cookies.permanent[User.cookie_name] = { :value => user.id,
                                             :httponly => true,
-                                            # :secure => true,
+                                            :secure => Rails.env.production?,
                                             :domain => cookie_domain,
                                             :path => '/' }
   end
