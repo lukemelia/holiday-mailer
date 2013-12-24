@@ -22,7 +22,7 @@ end
 
 group :staging, :production do
   gem 'heroku'
-  gem 'therubyracer', '0.9.3beta1'
+  gem 'therubyracer'
 end
 
 # To use ActiveModel has_secure_password
