@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    @households = Household.find(:all, :include => :people).sort_by &:last_name_of_first_person
+    @households = Household.includes(:people).all.sort_by &:last_name_of_first_person
   end
 
   def new

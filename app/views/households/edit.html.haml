@@ -2,12 +2,12 @@
 
 = semantic_form_for(@household) do |f|
   = errors_for(@household)
-  
+
   = f.inputs do
     = f.input :description
     = f.input :greeting
 
-  = f.buttons do
-    = f.commit_button
-  
+  = f.actions do
+    = f.action(:submit)
+
 = link_to 'Back', people_path

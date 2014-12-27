@@ -7,10 +7,10 @@
     = f.input :first_name
     = f.input :last_name
     = f.input :email
-  
+
     =f.hidden_field :household_id
 
-  = f.buttons do
-    = f.commit_button
+  = f.actions do
+    = f.action(:submit)
 
 .back= link_to 'Cancel and go back', people_path

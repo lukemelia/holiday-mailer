@@ -10,7 +10,7 @@
     = f.input :image_filename
     = f.input :message, :label => 'Message template'
 
-  = f.buttons do
-    = f.commit_button
+  = f.actions do
+    = f.action(:submit)
 
 .back= link_to 'Cancel and go back', batches_path
