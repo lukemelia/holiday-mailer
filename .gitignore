@@ -3,3 +3,4 @@ log
 tmp
 .DS_Store
 db/production_data.sql
+.env

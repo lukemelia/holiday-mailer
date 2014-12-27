@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby "2.1.1"
 
 gem 'rails', '3.1.3'
 
@@ -21,7 +22,6 @@ group :assets do
 end
 
 group :staging, :production do
-  gem 'heroku'
   gem 'therubyracer'
 end
 
@@ -29,7 +29,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
